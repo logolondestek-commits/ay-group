@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Destinalité LCME sınavları bilgilendirme sayfası">
+  <meta name="theme-color" content="#f8f3eb">
+  <title>LCME Sınavları | Destinalité</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --paper:#f8f3eb;
+      --paper-light:#fffaf4;
+      --ink:#211b17;
+      --muted:#70655b;
+      --gold:#ad762d;
+      --gold-soft:#d9bc8c;
+      --line:#dfcdb3;
+      --dark:#17110d;
+      --serif:"Cormorant Garamond", Georgia, serif;
+      --sans:"Montserrat", Arial, sans-serif;
+      --max:1080px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 15% 8%, rgba(217,188,140,.15), transparent 27rem),
+        var(--paper);
+      font-family:var(--sans);
+      font-size:16px;
+      line-height:1.8;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{width:min(var(--max),calc(100% - 40px));margin-inline:auto}
+
+    .site-header{
+      min-height:118px;
+      display:flex;
+      align-items:center;
+      border-bottom:1px solid rgba(173,118,45,.22);
+      background:rgba(248,243,235,.88);
+      backdrop-filter:blur(12px);
+      position:sticky;
+      top:0;
+      z-index:20;
+    }
+    .header-inner{display:flex;align-items:center;justify-content:center}
+
+    .brand{
+      display:inline-flex;
+      align-items:center;
+      gap:16px;
+      color:var(--gold);
+      text-align:left;
+    }
+    .brand-mark{
+      width:64px;
+      height:64px;
+      flex:none;
+    }
+    .brand-name{
+      display:block;
+      font-family:var(--serif);
+      font-size:28px;
+      line-height:1;
+      letter-spacing:.18em;
+      font-weight:600;
+    }
+    .brand-sub{
+      display:block;
+      margin-top:9px;
+      font-size:9px;
+      letter-spacing:.36em;
+      text-transform:uppercase;
+      color:#8b622e;
+    }
+
+    .hero{
+      min-height:560px;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      padding:92px 0 84px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::before,
+    .hero::after{
+      content:"";
+      position:absolute;
+      width:420px;
+      height:420px;
+      border:1px solid rgba(173,118,45,.1);
+      border-radius:50%;
+    }
+    .hero::before{left:-285px;top:-160px}
+    .hero::after{right:-300px;bottom:-170px}
+    .eyebrow{
+      color:var(--gold);
+      font-size:11px;
+      font-weight:600;
+      letter-spacing:.34em;
+      text-transform:uppercase;
+      margin-bottom:26px;
+    }
+    h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0}
+    h1{
+      font-size:clamp(62px,10vw,128px);
+      line-height:.84;
+      letter-spacing:-.035em;
+    }
+    .hero-title-small{
+      display:block;
+      margin-top:18px;
+      color:var(--gold);
+      font-size:clamp(24px,3vw,38px);
+      letter-spacing:.06em;
+    }
+    .ornament{
+      width:94px;
+      height:1px;
+      background:var(--gold);
+      margin:34px auto 28px;
+      position:relative;
+    }
+    .ornament::after{
+      content:"◆";
+      position:absolute;
+      left:50%;
+      top:50%;
+      transform:translate(-50%,-50%);
+      color:var(--gold);
+      background:var(--paper);
+      padding:0 12px;
+      font-size:8px;
+    }
+    .hero p{
+      max-width:710px;
+      margin:0 auto;
+      color:var(--muted);
+      font-size:17px;
+      font-weight:300;
+    }
+    .university{
+      display:inline-block;
+      margin-top:30px;
+      padding:10px 18px;
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      color:#5e5147;
+      font-family:var(--serif);
+      font-size:18px;
+      letter-spacing:.03em;
+    }
+
+    .intro{
+      background:var(--dark);
+      color:#f7efe4;
+      padding:90px 0;
+    }
+    .intro-grid{
+      display:grid;
+      grid-template-columns:.78fr 1.22fr;
+      gap:90px;
+      align-items:start;
+    }
+    .section-kicker{
+      color:var(--gold-soft);
+      font-size:10px;
+      letter-spacing:.3em;
+      text-transform:uppercase;
+      font-weight:600;
+      margin-bottom:18px;
+    }
+    .intro h2{
+      font-size:clamp(42px,5vw,68px);
+      line-height:1;
+    }
+    .intro-copy{
+      color:#d8cabe;
+      font-size:17px;
+      font-weight:300;
+    }
+    .intro-copy strong{color:#fff;font-weight:500}
+
+    .content{padding:105px 0 120px}
+    .content-head{
+      text-align:center;
+      max-width:720px;
+      margin:0 auto 70px;
+    }
+    .content-head h2{
+      font-size:clamp(43px,5vw,66px);
+      line-height:1;
+    }
+    .content-head p{color:var(--muted);margin:20px 0 0}
+
+    .rows{border-top:1px solid var(--line)}
+    .info-row{
+      display:grid;
+      grid-template-columns:100px 260px 1fr;
+      gap:34px;
+      padding:42px 0;
+      border-bottom:1px solid var(--line);
+      align-items:start;
+    }
+    .row-no{
+      font-family:var(--serif);
+      font-size:28px;
+      color:var(--gold);
+      line-height:1;
+      padding-top:5px;
+    }
+    .info-row h3{
+      font-size:31px;
+      line-height:1.08;
+    }
+    .info-row p{margin:0;color:var(--muted)}
+    .info-row ul{margin:0;padding:0;list-style:none;color:var(--muted)}
+    .info-row li{position:relative;padding-left:22px;margin:5px 0}
+    .info-row li::before{
+      content:"";
+      width:5px;
+      height:5px;
+      border:1px solid var(--gold);
+      transform:rotate(45deg);
+      position:absolute;
+      left:2px;
+      top:.72em;
+    }
+
+    .levels{
+      margin-top:96px;
+      padding:62px 0;
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      text-align:center;
+    }
+    .levels h2{font-size:46px}
+    .level-line{
+      margin-top:38px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+    .level-line span{
+      min-width:88px;
+      padding:11px 15px;
+      border:1px solid var(--line);
+      background:rgba(255,250,244,.5);
+      font-family:var(--serif);
+      font-size:18px;
+    }
+    .level-line .arrow{border:0;min-width:auto;color:var(--gold);padding-inline:2px}
+    .levels p{max-width:740px;margin:30px auto 0;color:var(--muted)}
+
+    .score{
+      padding:105px 0;
+      display:grid;
+      grid-template-columns:1fr 1.4fr;
+      gap:80px;
+      align-items:center;
+    }
+    .score h2{font-size:clamp(43px,5vw,64px);line-height:1}
+    .score p{color:var(--muted)}
+    .score-table{border-top:1px solid var(--line)}
+    .score-line{
+      display:grid;
+      grid-template-columns:130px 1fr;
+      padding:18px 0;
+      border-bottom:1px solid var(--line);
+      align-items:center;
+    }
+    .score-line strong{
+      font-family:var(--serif);
+      font-size:26px;
+      color:var(--gold);
+      font-weight:500;
+    }
+    .score-line span{font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+
+    .destinalite{
+      background:var(--paper-light);
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      padding:100px 0;
+      text-align:center;
+    }
+    .destinalite .mini-mark{width:68px;height:68px;margin:0 auto 25px}
+    .destinalite h2{font-size:clamp(44px,5vw,68px);line-height:1}
+    .destinalite p{max-width:760px;margin:28px auto 0;color:var(--muted)}
+    .signature{
+      margin-top:34px;
+      color:var(--gold);
+      font-family:var(--serif);
+      font-size:22px;
+      letter-spacing:.05em;
+    }
+
+    footer{
+      background:var(--dark);
+      color:#bcae9f;
+      padding:38px 0;
+      text-align:center;
+      font-size:11px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+
+    @media(max-width:800px){
+      .site-header{min-height:96px}
+      .brand-mark{width:52px;height:52px}
+      .brand-name{font-size:22px}
+      .hero{min-height:520px;padding:75px 0}
+      .intro-grid,.score{grid-template-columns:1fr;gap:36px}
+      .info-row{grid-template-columns:58px 1fr;gap:20px}
+      .info-row>div:last-child{grid-column:2}
+      .content{padding:80px 0 95px}
+      .score{padding:80px 0}
+    }
+
+    @media(max-width:520px){
+      .container{width:min(var(--max),calc(100% - 28px))}
+      .brand{gap:11px}
+      .brand-name{font-size:19px;letter-spacing:.13em}
+      .brand-sub{font-size:7px;letter-spacing:.28em}
+      .info-row{grid-template-columns:42px 1fr}
+      .row-no{font-size:23px}
+      .info-row h3{font-size:27px}
+      .score-line{grid-template-columns:105px 1fr}
+      .level-line{gap:8px}
+      .level-line span{min-width:76px;padding:9px 10px}
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="#" aria-label="Destinalité ana sayfa">
+      <svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="1.3"/>
+        <circle cx="50" cy="50" r="37" fill="none" stroke="currentColor" stroke-width=".6" opacity=".65"/>
+        <path d="M31 68c7-7 10-20 10-34m28 34c-7-7-10-20-10-34" fill="none" stroke="currentColor" stroke-width="1.2"/>
+        <path d="M36 61c9 7 19 7 28 0M40 51c7 5 13 5 20 0M43 41c5 3 9 3 14 0" fill="none" stroke="currentColor" stroke-width="1"/>
+        <path d="M50 28v35m-10-3h20M42 46c5-8 11-8 16 0" fill="none" stroke="currentColor" stroke-width="1.4"/>
+        <circle cx="50" cy="25" r="3" fill="currentColor"/>
+      </svg>
+      <span>
+        <span class="brand-name">DESTINALITÉ</span>
+        <span class="brand-sub">Kültür ve Sanat</span>
+      </span>
+    </a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow">Uluslararası Müzik Sınavları</div>
+      <h1>LCME<span class="hero-title-small">Sınavları</span></h1>
+      <div class="ornament"></div>
+      <p>Öğrencilerin teknik gelişimini, müzikal yorumunu, işitme becerisini ve teorik bilgisini uluslararası ölçütlerle değerlendiren kapsamlı bir sınav sistemidir.</p>
+      <div class="university">University of West London Qualifications</div>
+    </div>
+  </section>
+
+  <section class="intro">
+    <div class="container intro-grid">
+      <div>
+        <div class="section-kicker">LCME Nedir?</div>
+        <h2>Sanatsal gelişimi uluslararası standartlarla belgeleyen bir yolculuk.</h2>
+      </div>
+      <div class="intro-copy">
+        <strong>London College of Music Examinations (LCME)</strong>, müzik ve sahne sanatları alanında sınavlar düzenleyen uluslararası bir değerlendirme sistemidir. Sınavlar University of West London Qualifications tarafından yürütülür; başarılı adayların sertifika ve diplomaları University of West London adına düzenlenir.
+      </div>
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="container">
+      <div class="content-head">
+        <div class="section-kicker">Sınav Sistemi</div>
+        <h2>Öğrenciye uygun farklı sınav yolları</h2>
+        <p>Her öğrencinin seviyesi, repertuvarı ve hedefi farklıdır. LCME, standart sınavın yanında performans ve dijital sınav seçenekleri de sunar.</p>
+      </div>
+
+      <div class="rows">
+        <article class="info-row">
+          <div class="row-no">01</div>
+          <h3>Graded Exam</h3>
+          <p>Teknik çalışmalar, eser performansı, deşifre, işitme ve müzikal bilginin birlikte değerlendirildiği standart Grade sınavıdır.</p>
+        </article>
+        <article class="info-row">
+          <div class="row-no">02</div>
+          <h3>Recital Grade</h3>
+          <p>Repertuvar ve performans ağırlıklı sınav türüdür. Öğrencinin müzikal yorumu, bütünlük duygusu ve sahne performansı ön plandadır.</p>
+        </article>
+        <article class="info-row">
+          <div class="row-no">03</div>
+          <h3>Digital Recorded</h3>
+          <p>Sınavın tek ve kesintisiz video kaydıyla gerçekleştirildiği dijital modeldir. Kayıt üzerinde ses veya görüntü düzenlemesi yapılamaz.</p>
+        </article>
+        <article class="info-row">
+          <div class="row-no">04</div>
+          <h3>Music Theory</h3>
+          <p>Müzik yazısı, tonalite, ritim, aralıklar, akorlar, analiz ve müzik terminolojisinin değerlendirildiği teori sınavlarıdır.</p>
+        </article>
+      </div>
+
+      <section class="levels">
+        <div class="section-kicker">Seviye Sistemi</div>
+        <h2>Başlangıçtan profesyonel düzeye</h2>
+        <div class="level-line" aria-label="LCME seviye sıralaması">
+          <span>Step 1–2</span><span class="arrow">→</span>
+          <span>Grade 1–8</span><span class="arrow">→</span>
+          <span>DipLCM</span><span class="arrow">→</span>
+          <span>ALCM</span><span class="arrow">→</span>
+          <span>LLCM</span><span class="arrow">→</span>
+          <span>FLCM</span>
+        </div>
+        <p>Alt seviyeleri tek tek tamamlamak zorunlu değildir. Öğrenci, öğretmeninin değerlendirmesi doğrultusunda hazır olduğu seviyeden sınava yönlendirilebilir.</p>
+      </section>
+
+      <section class="score">
+        <div>
+          <div class="section-kicker">Değerlendirme</div>
+          <h2>100 puan üzerinden açık ve anlaşılır sonuç sistemi</h2>
+          <p>Grade ve Recital Grade sınavlarında başarılı sayılmak için en az 65 puan alınması gerekir.</p>
+        </div>
+        <div class="score-table" aria-label="LCME puan tablosu">
+          <div class="score-line"><strong>85–100</strong><span>Distinction</span></div>
+          <div class="score-line"><strong>75–84</strong><span>Merit</span></div>
+          <div class="score-line"><strong>65–74</strong><span>Pass</span></div>
+          <div class="score-line"><strong>0–64</strong><span>Unsuccessful</span></div>
+        </div>
+      </section>
+
+      <div class="rows">
+        <article class="info-row">
+          <div class="row-no">05</div>
+          <h3>Uluslararası Geçerlilik</h3>
+          <p>LCME, University of West London bünyesinde yürütülen uluslararası bir sınav sistemidir. Uygun Grade 6–8 yeterlilikleri İngiltere üniversite başvurularında UCAS Tariff puanı sağlayabilir.</p>
+        </article>
+        <article class="info-row">
+          <div class="row-no">06</div>
+          <h3>Yaş ve Seviye</h3>
+          <p>Grade sınavlarında genel bir alt yaş sınırı bulunmaz. Öğrencinin seviyesi; teknik becerisi, müzikal gelişimi ve öğretmen değerlendirmesiyle belirlenir.</p>
+        </article>
+        <article class="info-row">
+          <div class="row-no">07</div>
+          <h3>Sınav Alanları</h3>
+          <div>
+            <ul>
+              <li>Piyano, yaylı ve üflemeli çalgılar</li>
+              <li>Şan, gitar ve vurmalı çalgılar</li>
+              <li>Müzik teorisi ve kompozisyon</li>
+              <li>Performans ve öğretmenlik diplomaları</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="destinalite">
+    <div class="container">
+      <svg class="mini-mark" viewBox="0 0 100 100" aria-hidden="true" style="color:var(--gold)">
+        <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="1.3"/>
+        <circle cx="50" cy="50" r="37" fill="none" stroke="currentColor" stroke-width=".6" opacity=".65"/>
+        <path d="M31 68c7-7 10-20 10-34m28 34c-7-7-10-20-10-34" fill="none" stroke="currentColor" stroke-width="1.2"/>
+        <path d="M36 61c9 7 19 7 28 0M40 51c7 5 13 5 20 0M43 41c5 3 9 3 14 0" fill="none" stroke="currentColor" stroke-width="1"/>
+        <path d="M50 28v35m-10-3h20M42 46c5-8 11-8 16 0" fill="none" stroke="currentColor" stroke-width="1.4"/>
+        <circle cx="50" cy="25" r="3" fill="currentColor"/>
+      </svg>
+      <div class="section-kicker">Destinalité’de LCME Hazırlığı</div>
+      <h2>Her öğrenci için kişiye özel sınav planı</h2>
+      <p>Öğrencilerimizin seviyeleri öğretmenlerimiz tarafından dikkatle değerlendirilir. Teknik gelişim, yaş, repertuvar ve müzikal hedefler doğrultusunda kişiye özel bir LCME hazırlık programı oluşturulur.</p>
+      <div class="signature">Disiplin · Estetik · Müzikal İfade</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">Destinalité Kültür ve Sanat · LCME Bilgilendirme Sayfası</div>
+</footer>
+
+</body>
+</html>
